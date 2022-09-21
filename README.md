@@ -1,2 +1,2 @@
 # NetworkStudy
-Window Programming 2022 spring TUK
+Network Game Programming 2022 Fall TUK
