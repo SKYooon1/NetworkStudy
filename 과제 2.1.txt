@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a{ 0x12345678 };
+
+	cout << hex << reinterpret_cast<int>(reinterpret_cast<char*>(&a)) << " " <<
+		hex << static_cast<int>(*reinterpret_cast<char*>(&a)) << endl;
+	cout << hex << reinterpret_cast<int>(reinterpret_cast<char*>(&a) + 1) << " " <<
+		hex << static_cast<int>(*(reinterpret_cast<char*>(&a) + 1)) << endl;
+	cout << hex << reinterpret_cast<int>(reinterpret_cast<char*>(&a) + 2) << " " <<
+		hex << static_cast<int>(*(reinterpret_cast<char*>(&a) + 2)) << endl;
+	cout << hex << reinterpret_cast<int>(reinterpret_cast<char*>(&a) + 3) << " " <<
+		hex << static_cast<int>(*(reinterpret_cast<char*>(&a) + 3)) << endl;
+
+	if (*reinterpret_cast<char*>(&a) == 0x78)
+		cout << "Little endian" << endl;
+	else cout << "Big endian" << endl;
+}
