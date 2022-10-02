@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 		int min = atoi(argv[1]);
 		int max = atoi(argv[2]);
 
-		for (int port{ min }; port < max; ++port)
+		for (int port{ min }; port <= max; ++port)
 			getListeningPort(localLoopIp, port);
 	}
 	else if (argc > 3)
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 		int min = atoi(argv[2]);
 		int max = atoi(argv[3]);
 
-		for (int port{ min }; port < max; ++port)
+		for (int port{ min }; port <= max; ++port)
 			getListeningPort(argv[1], port);
 	}
 
@@ -42,9 +42,10 @@ void getListeningPort(const char* ip, int port)
 	serveraddr.sin_family = AF_INET;
 	inet_pton(AF_INET, ip, &serveraddr.sin_addr);
 	serveraddr.sin_port = htons(port);
-
-	if (connect(sock, reinterpret_cast<sockaddr*>(&serveraddr), sizeof(serveraddr)))
+	
+	if (connect(sock, reinterpret_cast<sockaddr*>(&serveraddr), sizeof(serveraddr)) == 0)
 	{
 		std::cout << port << " is LISTENING state." << std::endl;
 	}
+	else std::cout << port << " is not LISTENING state." << std::endl;
 }
