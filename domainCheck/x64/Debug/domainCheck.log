@@ -1,3 +1,0 @@
-﻿  domainCheck.cpp
-C:\Users\SKYooon\Desktop\네트워크게임프로그래밍\NetworkStudy\domainCheck\domainCheck.cpp(50,18): warning C4101: 'addr' :참조되지 않은 지역 변수입니다.
-  domainCheck.vcxproj -> C:\Users\SKYooon\Desktop\네트워크게임프로그래밍\NetworkStudy\domainCheck\x64\Debug\domainCheck.exe

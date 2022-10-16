@@ -1,2 +1,0 @@
-C:\Users\SKYooon\Desktop\네트워크게임프로그래밍\InitWinsock\Debug\InitWinsock.exe
-C:\Users\SKYooon\Desktop\네트워크게임프로그래밍\실습\InitWinsock\Debug\InitWinsock.exe
