@@ -9,10 +9,10 @@ int main(int argc, char* argv[])
 	char* serverIP{ const_cast<char*>("127.0.0.1") };
 	const short serverPort{ 9000 };
 	const short bufferSize{ 512 };
-	// char* fileName{ const_cast<char*>("test.mp4") };
+	char* fileName{ const_cast<char*>("test.mp4") };
 
 	// 명령행 인수가 있으면 1번째 인수는 파일 이름
-	// if (argc > 1) fileName = argv[1];
+	if (argc > 1) fileName = argv[1];
 
 	// 명령행 인수가 2개 이상이면 2번째 인수는 IP
 	if (argc > 2) serverIP = argv[2];
@@ -31,7 +31,16 @@ int main(int argc, char* argv[])
 		err_quit("connect()");
 
 	// 데이터 통신에 사용할 변수
-	char buf[bufferSize + 1];
+	char buf[bufferSize];
+	size_t size{};
+
+	// 파일 읽기
+	std::ifstream in{ fileName, std::ios::binary };
+
+	// 파일 사이즈 확인
+	in.seekg(0, std::ios::end);
+	size = in.tellg();
+	in.seekg(0, std::ios::beg);
 
 	// 서버와 데이터 통신
 	while (true) {
